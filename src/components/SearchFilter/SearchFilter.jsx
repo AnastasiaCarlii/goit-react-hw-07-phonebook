@@ -8,14 +8,16 @@ export const SearchFilter = () => {
   const filter = useSelector(selectFilter);
 
   return (
-    <label>
-      Find contacts by name
-      <input
-        className={css.searchInput}
-        type="text"
-        value={filter}
-        onChange={e => dispatch(setFilter(e.target.value.trim()))}
-      />
-    </label>
+    <ul className={css.formContainer}>
+      <label className={css.label}>
+        Find contacts by name
+        <input
+          className={css.searchInput}
+          type="text"
+          value={filter}
+          onChange={e => dispatch(setFilter(e.target.value.trim()))}
+        />
+      </label>
+    </ul>
   );
 };
