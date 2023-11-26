@@ -5,7 +5,8 @@ import { nanoid } from 'nanoid';
 
 import css from './ContactForm.module.css';
 import { selectContacts } from 'redux/selectors';
-import { addContact } from 'redux/contacts/contactsSlice';
+
+import { fetchAddContact } from 'redux/contacts/operations';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -31,7 +32,7 @@ const ContactForm = () => {
 
     const newContact = { id: nanoid(), ...data };
 
-    dispatch(addContact(newContact));
+    dispatch(fetchAddContact(newContact));
     setData({ name: '', number: '' });
   };
 

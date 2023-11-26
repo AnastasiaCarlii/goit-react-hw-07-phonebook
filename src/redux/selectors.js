@@ -8,10 +8,13 @@ export const selectVisibleContacts = createSelector(
   [selectContacts, selectFilter],
 
   (contacts, filter) => {
-    return contacts.filter(
+    const safeContacts = contacts || [];
+    const safeFilter = filter ? filter.toLowerCase() : '';
+
+    return safeContacts.filter(
       contact =>
-        contact.name.toLowerCase().includes(filter.toLowerCase()) ||
-        contact.number.includes(filter)
+        contact.name.toLowerCase().includes(safeFilter) ||
+        (contact.number && contact.number.includes(safeFilter))
     );
   }
 );
