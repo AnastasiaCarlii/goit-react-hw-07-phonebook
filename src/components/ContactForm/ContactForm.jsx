@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 
 import { useState } from 'react';
-import { nanoid } from 'nanoid';
 
 import css from './ContactForm.module.css';
 import { selectContacts } from 'redux/selectors';
@@ -13,9 +12,9 @@ const ContactForm = () => {
   const contacts = useSelector(selectContacts);
   const [data, setData] = useState({
     name: '',
-    number: '',
+    phone: '',
   });
-  const { name, number } = data;
+  const { name, phone } = data;
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -23,17 +22,18 @@ const ContactForm = () => {
       contacts.find(
         contact =>
           contact.name.toLowerCase() === name.toLowerCase() ||
-          contact.number === number
+          contact.phone === phone
       )
     ) {
-      alert(`${name} or ${number} is already in your contacts`);
+      alert(`${name} or ${phone} is already in your contacts`);
+      setData({ name: '', phone: '' });
       return;
     }
 
-    const newContact = { id: nanoid(), ...data };
+    const newContact = { ...data };
 
     dispatch(fetchAddContact(newContact));
-    setData({ name: '', number: '' });
+    setData({ name: '', phone: '' });
   };
 
   const handleChange = e => {
@@ -64,8 +64,8 @@ const ContactForm = () => {
           className={css.formInput}
           autoComplete="off"
           type="text"
-          name="number"
-          value={number}
+          name="phone"
+          value={phone}
           onChange={handleChange}
           required
         />

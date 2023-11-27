@@ -51,55 +51,6 @@ const contactsSlice = createSlice({
         state.error = payload;
       });
   },
-
-  // extraReducers: {
-  //   [fetchAllContacts.pending](state) {
-  //     state.isLoading = true;
-  //   },
-  //   [fetchAllContacts.fulfilled](state, { payload }) {
-
-  //     state.items = payload;
-  //     state.isLoading = false;
-  //   },
-
-  //   [fetchAllContacts.rejected](state, { payload }) {
-  //     state.isLoading = false;
-  //     state.error = payload;
-  //   },
-
-  //   [fetchAddContact.pending](state) {
-  //     state.isLoading = true;
-  //   },
-  //   [fetchAddContact.fulfilled](state, { payload }) {
-  //     state.items.push(payload);
-  //     state.isLoading = false;
-  //   },
-  //   [fetchAddContact.rejected](state, { payload }) {
-  //     state.isLoading = false;
-  //     state.error = payload;
-  //   },
-
-  //   [fetchDeleteContact.pending](state) {
-  //     state.isLoading = true;
-  //   },
-  //   [fetchDeleteContact.fulfilled](state, { payload }) {
-  //     state.items = state.items.filter(item => item.id !== payload);
-  //     state.isLoading = false;
-  //   },
-  //   [fetchDeleteContact.rejected](state, { payload }) {
-  //     state.isLoading = false;
-  //     state.error = payload;
-  //   },
-  // },
-  // Об'єкт редюсерів
-  reducers: {
-    addContact(state, { payload }) {
-      state.items.push(payload);
-    },
-    deleteContact(state, { payload }) {
-      state.items = state.items.filter(item => item.id !== payload);
-    },
-  },
 });
 
 // Генератори екшенів

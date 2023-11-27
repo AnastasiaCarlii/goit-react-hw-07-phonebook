@@ -6,15 +6,11 @@ export const selectFilter = state => state.filter;
 
 export const selectVisibleContacts = createSelector(
   [selectContacts, selectFilter],
-
   (contacts, filter) => {
-    const safeContacts = contacts || [];
-    const safeFilter = filter ? filter.toLowerCase() : '';
-
-    return safeContacts.filter(
+    return contacts.filter(
       contact =>
-        contact.name.toLowerCase().includes(safeFilter) ||
-        (contact.number && contact.number.includes(safeFilter))
+        contact.name.toLowerCase().includes(filter.toLowerCase()) ||
+        contact.phone.includes(filter)
     );
   }
 );
