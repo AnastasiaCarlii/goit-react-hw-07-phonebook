@@ -48,7 +48,7 @@ const ContactForm = () => {
         <input
           pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           className={css.formInput}
-          autoComplete="off"
+          autoComplete="on"
           type="text"
           name="name"
           value={name}
@@ -62,7 +62,7 @@ const ContactForm = () => {
         <input
           pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
           className={css.formInput}
-          autoComplete="off"
+          autoComplete="on"
           type="text"
           name="phone"
           value={phone}
